@@ -1,19 +1,19 @@
-import React, { useState } from 'react'
-import './App.css'
-import DecimalToBinary from './components/DecimalToBinary'
-import BinaryToDecimal from './components/BinaryToDecimal'
-import AsciiConverter from './components/ASCII'
-import OctalToDecimal from './components/OctalTODecimal'
+import React, { useState } from "react";
 
+import BinaryToDecimal from "./components/BinaryToDecimal";
+import OctalToDecimal from "./components/OctalTODecimal";
+import DecimalToBinary from "./components/DecimalToBinary";
+import AsciiConverter from "./components/ASCII";
+import "./App.css"
 
 
 function App() {
-  const [selectedComponent, setSelectedComponent] = useState("binary");
+  const [selectedConverter, setSelectedConverter] = useState("binary");
 
-  const renderComponent = () => {
-    switch (selectedComponent) {
+  const renderConverter = () => {
+    switch (selectedConverter) {
       case "binary":
-        return <BinaryToDecimal></BinaryToDecimal>
+        return <BinaryToDecimal />;
       case "octal":
         return <OctalToDecimal />;
       case "decimal":
@@ -21,21 +21,39 @@ function App() {
       case "ascii":
         return <AsciiConverter />;
       default:
-        return <BinaryToDecimal></BinaryToDecimal>
+        return <BinaryToDecimal />;
     }
   };
 
   return (
-    <div>
-      <h1>Convertidor de Números y ASCII</h1>
-      <select onChange={(e) => setSelectedComponent(e.target.value)}>
-        <option value="binary">Binario a Decimal</option>
-        <option value="octal">Octal a Decimal</option>
-        <option value="decimal">Decimal a Binario</option>
-        <option value="ascii">Texto a ASCII</option>
-      </select>
-      {renderComponent()}
+  <>
+  <h1 className="p-title">Convertidor de Números y ASCII</h1>
+    <div className="container mt-4">
+    <div className="card-list">
+      
+      <ul style={{ listStyle: "none", padding: 0 }}>
+        <li>
+          <button  className="button" onClick={() => setSelectedConverter("binary")}>Binario a Decimal</button>
+        </li>
+        <li>
+          <button  className="button" onClick={() => setSelectedConverter("octal")}>Octal a Decimal</button>
+        </li>
+        <li>
+          <button  className="button" onClick={() => setSelectedConverter("decimal")}>Decimal a Binario</button>
+        </li>
+        <li>
+          <button  className="button" onClick={() => setSelectedConverter("ascii")}>Texto a ASCII</button>
+        </li>
+      </ul>
     </div>
+      
+
+      <div className="convert-card">
+        {renderConverter()}
+      </div>
+      
+    </div>
+    </>
   );
 }
 

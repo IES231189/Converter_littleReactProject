@@ -24,8 +24,6 @@ function AsciiConverter() {
         <button onClick={convertToAscii}>Convertir</button>
         <p>Resultado: {asciiValues.join(", ")}</p>
       </div>
-
-      
     );
   }
 
