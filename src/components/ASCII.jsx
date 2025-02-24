@@ -19,13 +19,13 @@ function AsciiConverter() {
         type="text"
         value={text}
         onChange={(e) => {
-          // Limita la longitud a 10 caracteres
+          
           if (e.target.value.length <= 10) {
             setText(e.target.value);
           }
         }}
         placeholder="Ingrese texto (mín. 10 caracteres)"
-        maxLength="10"  // Evita que se ingresen más de 10 caracteres
+        maxLength="10"  
       />
       <button onClick={convertToAscii}>Convertir</button>
       <p>Resultado: {asciiValues.join(", ")}</p>

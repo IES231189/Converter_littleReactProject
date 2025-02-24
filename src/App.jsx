@@ -27,7 +27,7 @@ function App() {
 
   return (
   <>
-  <h1 className="p-title">Convertidor de Números y ASCII</h1>
+  <h1 className="p-title">Convertidor de numeros</h1>
     <div className="container mt-4">
     <div className="card-list">
       
